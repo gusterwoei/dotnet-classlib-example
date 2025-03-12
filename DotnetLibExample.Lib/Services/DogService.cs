@@ -7,7 +7,7 @@ namespace DotnetLibExample.Lib.Services
     {
         private readonly IDogApi _api = api;
 
-        public async Task<Dictionary<string, object>> GetBreeds()
+        public async Task<Dictionary<string, List<string>>> GetBreeds()
         {
             try
             {
