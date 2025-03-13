@@ -2,7 +2,8 @@ using Moq;
 using DotnetLibExample.Lib.Api;
 using DotnetLibExample.App.Models;
 using DotnetLibExample.Lib.Models;
-using Newtonsoft.Json;
+// using Newtonsoft.Json;
+using System.Text.Json;
 
 public class DogApiTests
 {
@@ -17,7 +18,7 @@ public class DogApiTests
     public async Task GetBreeds_ShouldReturnBreeds()
     {
         var jsonString = File.ReadAllText("fixtures/breeds_mock.json");
-        var fakeResponse = JsonConvert.DeserializeObject<GetBreedResponse>(jsonString);
+        var fakeResponse = JsonSerializer.Deserialize<GetBreedResponse>(jsonString);
 
         _dogApiMock.Setup(api => api.GetBreeds()).ReturnsAsync(fakeResponse!);
 
@@ -33,7 +34,7 @@ public class DogApiTests
     public async Task GetSubBreeds_ShouldReturnSubBreeds()
     {
         var jsonString = File.ReadAllText("fixtures/sub_breeds_mock.json");
-        var fakeResponse = JsonConvert.DeserializeObject<GetSubBreedResponse>(jsonString);
+        var fakeResponse = JsonSerializer.Deserialize<GetSubBreedResponse>(jsonString);
 
         _dogApiMock.Setup(api => api.GetSubBreeds("affenpinscher")).ReturnsAsync(fakeResponse!);
 
