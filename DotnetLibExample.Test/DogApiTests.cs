@@ -2,7 +2,6 @@ using Moq;
 using DotnetLibExample.Lib.Api;
 using DotnetLibExample.App.Models;
 using DotnetLibExample.Lib.Models;
-// using Newtonsoft.Json;
 using System.Text.Json;
 
 public class DogApiTests
